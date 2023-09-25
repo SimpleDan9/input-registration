@@ -1,0 +1,61 @@
+%center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+%input_global{
+    display:inline-block;
+    width: 500px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+@mixin changing_style($border){
+    border-bottom: $border;
+}
+
+$color_1:rgb(100, 99, 99);
+$color_2:rgb(48, 104, 48);
+$color_3:red;
+
+
+
+.box{
+    width: 100%;
+    height: 100vh;
+    @extend %center;
+
+    .input-1{
+        @extend %input_global;
+        @include changing_style(1px solid $color_1);
+    }
+    .input_2{
+        @extend %input_global;
+        @include changing_style(4px solid $color_2)
+    }
+    .input-3{
+        @extend %input_global;
+        @include changing_style(4px solid $color_3);
+    }
+    .incorrect{
+        width: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p{
+            color: red;
+        }
+        i{
+            color: red;
+        }
+    }
+    .input_4{
+        @extend %input_global;
+        @include changing_style(3px dotted $color_1)
+    }
+}
